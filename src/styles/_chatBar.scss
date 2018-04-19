@@ -1,0 +1,12 @@
+.chat-bar {
+  border: 2px solid lightgray;
+  border-radius: 8px;
+
+  &::placeholder {
+    color: lightgray;
+  }
+
+  &:focus {
+    border-color: dimgray;
+  }
+}

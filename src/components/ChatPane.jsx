@@ -37,7 +37,7 @@ class ChatPane extends Component {
     const { usersTyping, id, typingStart, typingEnd, submit } = this.props
 
     return (
-      <div className='vh-100 pa3 df flex-col flex-grow-1'>
+      <div className='chat-pane vh-100 pa3 df flex-col flex-grow-1'>
         <div
           ref={div => this.chatWindow = div}
           className='chat-window pa3 h-100 overflow-x-s'
@@ -75,7 +75,6 @@ const mapStateToProps = ({ users }, { id }) => ({
 
 //                         (dispatch, ownProps)
 const mapDispatchToProps = (dispatch, { id }) => ({
-  typingStart: () => dispatch(startTyping(id)),
   submit: e => {
     e.preventDefault()
     dispatch(endTyping(id))
@@ -85,9 +84,7 @@ const mapDispatchToProps = (dispatch, { id }) => ({
     dispatch(saveMessage(id, e.target.input.value))
     e.target.input.value = ''
   },
-
-  // TODO: figure out the correct way to throttle starting typing.
-  // typingStart: throttle(() => console.log('Starting'), 600),
+  typingStart: () => dispatch(startTyping(id)),
   typingEnd: debounce(() => dispatch(endTyping(id)), 500)
 })
 

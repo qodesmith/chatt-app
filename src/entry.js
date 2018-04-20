@@ -17,8 +17,8 @@ import { retrieveData } from 'actions'
 
 
 // Retrieve our user & messages data.
-store.dispatch(retrieveData())
-
+const localStore = JSON.parse(localStorage.getItem('asapp'))
+if (localStore) store.dispatch(retrieveData(localStore))
 
 // Create a single element for our app to live.
 console.log('Loaded, bro.')

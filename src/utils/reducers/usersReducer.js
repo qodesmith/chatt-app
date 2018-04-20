@@ -4,16 +4,13 @@ const initialState = {
     { name: 'Qodesmith', id: 1 },
     { name: 'Wordsmith', id: 2 }
   ],
-  messages: [
-    { id: 1, message: 'hey!' },
-    { id: 1, message: 'how are you?' },
-    { id: 2, message: `I'm good` },
-    { id: 1, message: 'good to hear' }
-  ]
+  messages: []
 }
 
 const usersReducer = (state = initialState, action = {}) => {
   switch (action.type) {
+    case 'RETRIEVE_DATA':
+      return { ...action.payload.users, typing: [] }
     case 'START_TYPING':
       const alreadyTyping = state.typing.includes(action.payload)
 

@@ -1,4 +1,4 @@
-export const retrieveData = () => ({ type: 'RETRIEVE DATA' }) // Example action.
+export const retrieveData = data => ({ type: 'RETRIEVE_DATA', payload: data }) // Example action.
 
 // Typing actions.
 export const startTyping = id => ({ type: 'START_TYPING', payload: id })

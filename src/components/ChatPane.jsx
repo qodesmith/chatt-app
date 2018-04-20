@@ -78,6 +78,10 @@ const mapDispatchToProps = (dispatch, { id }) => ({
   typingStart: () => dispatch(startTyping(id)),
   submit: e => {
     e.preventDefault()
+    dispatch(endTyping(id))
+
+    if (!e.target.input.value) return
+
     dispatch(saveMessage(id, e.target.input.value))
     e.target.input.value = ''
   },

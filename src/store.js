@@ -1,10 +1,10 @@
 import { combineReducers, createStore, applyMiddleware, compose } from 'redux'
 import usersReducer from 'reducers/usersReducer'
-import storeToLocalStorage from 'middleware/storeToLocalStorage'
+import messagesToLocalStorage from 'middleware/messagesToLocalStorage'
 
 
 // Add all your custom middleware to this array.
-const middlewareList = [storeToLocalStorage]
+const middlewareList = [messagesToLocalStorage]
 
 // Add all your reducers to this object.
 const rootReducer = combineReducers({ users: usersReducer })

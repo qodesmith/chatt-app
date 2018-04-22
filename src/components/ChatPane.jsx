@@ -34,7 +34,7 @@ class ChatPane extends Component {
   }
 
   render() {
-    const { usersTyping, id, typingStart, typingEnd, submit } = this.props
+    const { usersTyping, id, typingStart, typingEnd, submit, messages } = this.props
 
     return (
       <div className='chat-pane vh-100 pa3 df flex-col flex-grow-1'>
@@ -43,7 +43,7 @@ class ChatPane extends Component {
           className='chat-window pa3 h-100 overflow-x-s'
         >
           {
-            this.props.messages.map((item, i) => <Message key={i} id={id} item={item} />)
+            messages.map((item, i) => <Message key={i} id={id} item={item} />)
           }
         </div>
         <form onSubmit={submit}>

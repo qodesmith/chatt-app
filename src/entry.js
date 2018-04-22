@@ -13,12 +13,12 @@ import App from './components/App'
 
 // Import a store, created & ready to go.
 import store from './store'
-import { retrieveData } from 'actions'
+import { messagesLoaded } from 'actions'
 
 
 // Retrieve our user & messages data.
-const localStore = JSON.parse(localStorage.getItem('asapp'))
-if (localStore) store.dispatch(retrieveData(localStore))
+const messages = JSON.parse(localStorage.getItem('asapp'))
+if (messages) store.dispatch(messagesLoaded(messages))
 
 // Create a single element for our app to live.
 console.log('Loaded, bro.')

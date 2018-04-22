@@ -9,8 +9,8 @@ const initialState = {
 
 const usersReducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case 'RETRIEVE_DATA':
-      return { ...action.payload.users, typing: [] }
+    case 'MESSAGES_LOADED':
+      return { ...state, typing: [], messages: action.payload }
     case 'START_TYPING':
       const alreadyTyping = state.typing.includes(action.payload)
 
